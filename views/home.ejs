@@ -1,0 +1,25 @@
+<%- include('./partials/home_header.ejs'); %>
+    <div class="container">
+        <h1 class="heading">Blogs</h1>
+        <a href="/blog/new" class="btn btn-primary ahref">Create New</a>
+
+        <% blog.forEach(blogs =>{ %>
+            <div class="card my-4" style="background-color: #423F3E ">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <%= blogs.title  %>
+                    </h3>
+                    <div class="card-text mb-2">
+                        <%= blogs.description  %>
+                    </div>
+                    <a href="blog/<%= blogs.id  %> " class="btn btn-dark"> Read More</a>
+                    <form action="/blog/<%= blogs.id%>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-dark">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <%   }) %>
+
+                </body>
+
+                </html>
